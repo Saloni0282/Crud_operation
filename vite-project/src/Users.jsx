@@ -16,18 +16,20 @@ function Users() {
       })
       .catch((err) => console.log(err));
   };
-const handleShow = (id) => {
-  axios
-    .get(`http://localhost:3001/read/` + id)
-      .then((res) => {
-        console.log(res.data)
-      const user = res.data;
-      dispatch(showUserById(user));
-    })
-    .catch((err) => console.log(err));
-};
 
+//   const handleShow = (id) => {
+//     axios
+//       .get(`http://localhost:3001/read/` + id)
+//       .then((res) => {
+//         const user = res.data;
+//         dispatch(showUserById(user));
+//       })
+//       .catch((err) => console.log(err));
+//   };
 
+  // useEffect(() => {
+
+  // }, []);
 
   return (
     <div className="d-flex vh-100 bg-primary justify-content-center align-items-center">
@@ -40,7 +42,7 @@ const handleShow = (id) => {
             <tr>
               <th>Name</th>
               <th>Email</th>
-              <th>Mobile</th>
+              {/* <th>Mobile</th> */}
               <th>Action</th>
             </tr>
           </thead>
@@ -50,24 +52,17 @@ const handleShow = (id) => {
                 <tr key={user.id}>
                   <td>{user.name}</td>
                   <td>{user.email}</td>
-                  <td>{user.mobile}</td>
+                  {/* <td>{user.mobile}</td> */}
                   <td>
-                    <button
-                      onClick={() => handleShow(user.id)}
-                      className="btn btn-sm btn-success me-2"
-                    >
-                      Show
-                    </button>
-                    <Link
-                      to={`/edit/${user.id}`}
-                      className="btn btn-sm btn-success me-2"
-                    >
-                      Update
+                 
+                  {/* onClick={() => handleShow(user.id)} */}
+                    <Link to={`/read/${user.id}`} className="btn btn-sm btn-success me-2">
+                      View
                     </Link>
-                    <button
-                      onClick={() => handleDelete(user.id)}
-                      className="btn btn-sm btn-danger"
-                    >
+                    <Link to={`/edit/${user.id}`} className="btn btn-sm btn-success me-2">
+                      Edit
+                    </Link>
+                    <button onClick={() => handleDelete(user.id)} className="btn btn-sm btn-danger">
                       Delete
                     </button>
                   </td>

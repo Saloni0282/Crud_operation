@@ -22,3 +22,14 @@ app.listen(PORT, async () => {
     }
     console.log(`Server listening on port ${PORT}`);
 });
+
+
+// "*" Routes handling 404 Not Found
+app.all("*", (req, res) => {
+    res.status(404);
+     if (req.accepts("json")) {
+      res.json({ message: "404 Not Found" });
+    } else {
+      res.type("txt").send("404 Not Found");
+    }
+  });

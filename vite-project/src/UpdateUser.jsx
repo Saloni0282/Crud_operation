@@ -4,6 +4,8 @@ import { addUser, updateUser } from "./redux/userSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 
+//edit
+
 function UpdateUser() {
   const { id } = useParams();
 
@@ -74,6 +76,7 @@ function UpdateUser() {
           <button className="btn btn-success">Update</button>
         </form>
       </div>
+      
     </div>
   );
 }
