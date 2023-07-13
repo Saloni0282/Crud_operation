@@ -7,7 +7,9 @@ import { showUserById } from "./redux/userSlice";
 function ShowUser() {
   const { id } = useParams();
 
-  const user = useSelector((state) => state.users.selectedUser);
+  const user = useSelector((state) =>
+    state.users.users.find((u) => u.id === id),
+  );
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -26,6 +28,7 @@ function ShowUser() {
   return (
     <div>
       <h2>User Details</h2>
+      
       <p>ID: {user.id}</p>
       <p>Name: {user.name}</p>
       <p>Email: {user.email}</p>

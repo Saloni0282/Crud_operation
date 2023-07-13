@@ -16,16 +16,17 @@ function Users() {
       })
       .catch((err) => console.log(err));
   };
-
-  const handleShow = (id) => {
-    axios
-      .get(`http://localhost:3001/user/${id}`)
+const handleShow = (id) => {
+  axios
+    .get(`http://localhost:3001/read/` + id)
       .then((res) => {
-        const user = res.data;
-        dispatch(showUserById({ id: user.id, ...user }));
-      })
-      .catch((err) => console.log(err));
-  };
+        console.log(res.data)
+      const user = res.data;
+      dispatch(showUserById(user));
+    })
+    .catch((err) => console.log(err));
+};
+
 
 
   return (

@@ -4,7 +4,6 @@ const userSlice = createSlice({
   name: "users",
   initialState: {
     users: [],
-    selectedUser:null,
   },
   reducers: {
     getUser: (state, action) => {
@@ -20,15 +19,15 @@ const userSlice = createSlice({
     addUser: (state, action) => {
       state.users.push(action.payload);
     },
-    updateUser: (state, action) => {
-      const index = state.users.findIndex((x) => x.id === action.payload.id);
-      state.users[index] = {
-        id: action.payload.id,
-        name: action.payload.name,
-        email: action.payload.email,
-        mobile: action.payload.mobile,
-      };
-    },
+  updateUser: (state, action) => {
+           const  index = state.users.findIndex(x => x.id === action.payload.id)
+            state.users[index] = {
+                id: action.payload.id,
+                name: action.payload.name,
+                email: action.payload.email,
+                mobile: action.payload.mobile,
+            }
+        },
     deleteUser: (state, action) => {
       const id = action.payload.id;
       state.users = state.users.filter((u) => u.id !== id);
@@ -36,7 +35,7 @@ const userSlice = createSlice({
     showUserById: (state, action) => {
       const userId = action.payload.id;
       const user = state.users.find((x) => x.id === userId);
-      state.selectedUser = user; // Update the state with the selected user
+      return { ...state, user }; // Update the state with the selected user
     },
   },
 });
