@@ -25,7 +25,7 @@ function ShowUser() {
   }
 
   return (
-    <div>
+    <div className="w-50 bg-white rounded p-3">
       <h2>User Details</h2>
 
       <p>ID: {user.id}</p>
@@ -33,7 +33,12 @@ function ShowUser() {
       <p>Email: {user.email}</p>
       <p>Mobile: {user.mobile}</p>
 
-      <button  onClick={() => navigate("/")} className="btn btn-sm btn-success me-2" >BACK TO PAGE 1</button>
+      <button
+        onClick={() => navigate("/")}
+        className="btn btn-sm btn-success me-2"
+      >
+        BACK TO PAGE 1
+      </button>
     </div>
   );
 }
